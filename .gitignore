@@ -1,0 +1,8 @@
+.bundle
+.DS_Store
+/log
+/tmp
+config/database.yml
+
+# MS Office backup files
+~$*
