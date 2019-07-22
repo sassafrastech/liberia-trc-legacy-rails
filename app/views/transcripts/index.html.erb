@@ -1,0 +1,16 @@
+  <div class="transcript">
+    <div class="date"><strong>Date</strong></div>
+    <div class="region"><strong>County</strong></div>
+    <strong>Description</strong>
+  </div>
+
+<% @transcripts.each do |t| %>
+  <div class="transcript">
+    <div class="date">
+      <%= begin t.recorded_on.strftime("%B %e, %Y") rescue "[Date Unknown]" end %>
+    </div>
+    <div class="region"><%= t.region.name %></div>
+    <%= link_to(t.title, t) %>
+    <br clear="left" />
+  </div>
+<% end %>

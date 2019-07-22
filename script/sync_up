@@ -1,0 +1,1 @@
+rsync -rv --delete --exclude=autostart.cgi --exclude=doc/ --exclude=vendor/ --exclude=log/ --exclude=*.mp3 --exclude=*.flv --exclude=public/resources ./ gt4d@gt4d.net:webapps/trc/

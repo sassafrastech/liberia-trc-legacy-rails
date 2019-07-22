@@ -1,0 +1,8 @@
+Please select a video collection to browse.<br clear="all"/><br/>
+<% @sets.each do |s| %>
+  <div class="videoset">
+    <div class="title"><%= s.title %></div>
+    <%= link_to(image_tag(begin s.cover.path("thumbnail") rescue "nocover" end, :class => "cover"), s) %>
+    <div class="description"><%= s.description %>.</div>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<% @title = "Page Not Found" %>
+<% @crumb = nil %>
+<div id="error_page">
+  <p>We couldn't find the page you were looking for!</p>
+  <p>Note that this site has recently undergone an overhaul and the content you're searching for may have moved.</p>
+  <p>Please use the navigation links above to find what you're looking for. Also, below are some links to popular content.</p>
+  <p><strong>Popular content</strong></p>
+  <ul>
+    <li><%= link_to('TRC Videos', videosets_path) %></li>
+    <li><%= link_to('TRC Final Report', '/reports/final-report') %></li>
+    <li><%= link_to('TRC Press Releases', press_releases_path) %></li>
+  </ul>
+</div>

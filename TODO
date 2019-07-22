@@ -1,0 +1,26 @@
+GOT NEW VIDEOS
+X update schema
+X insert new data
+X add back youtube video
+X make and run url grabber script
+X create interface (combo boxes, pagination)
+X add more metadata to details page
+X hookup streaming
+X create search
+X create thumbnails
+X 404 page
+X bad chars in press releases
+X fix session
+X ie
+X bug with pages for N
+X better video main page
+X go production
+- thorough error scan
+- https not forwarding
+
+WEIRD CHARS
+- single quotes (open & close)
+- double quotes (open & close)
+- 3 dot elipsis
+- em dash
+- some weird space character

@@ -1,0 +1,5 @@
+<div id="photo">
+  <%= image_tag(@photo.path("normal")) %>
+  <%= link_to("Back", @photo.album) %> |
+  <%= link_to("Download original (#{@photo.filesize}kb)", @photo.path("original")) %>
+</div>

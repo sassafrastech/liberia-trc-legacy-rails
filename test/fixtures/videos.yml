@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  videoset_id: 1
+  title: MyString
+  recorded_on: 2010-09-22
+  length: 2010-09-22 16:34:19
+  width: 1
+  height: 1
+  size: 1
+  youtube_id: MyString
+  library_id: MyString
+  speaker_fname: MyString
+  speaker_lname: MyString
+  event_name: MyString
+
+two:
+  videoset_id: 1
+  title: MyString
+  recorded_on: 2010-09-22
+  length: 2010-09-22 16:34:19
+  width: 1
+  height: 1
+  size: 1
+  youtube_id: MyString
+  library_id: MyString
+  speaker_fname: MyString
+  speaker_lname: MyString
+  event_name: MyString

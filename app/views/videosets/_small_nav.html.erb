@@ -1,0 +1,9 @@
+<div class="small_nav">
+  <% pagination = will_paginate @videos %>
+  <%= pagination %>
+
+  <% if @set.title.match(/Hearing/) && @can_clear %>
+    <% unless pagination.nil? %>&nbsp;|&nbsp;<% end %>
+    <a href="#" onclick="var d = document.getElementById('filter_form'); d.clear.value = '1', d.submit();">Clear Filter Criteria</a>
+  <% end %>
+</div>

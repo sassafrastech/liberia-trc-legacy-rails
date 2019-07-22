@@ -1,0 +1,10 @@
+<% @title = "Press Releases" %>
+
+<%= will_paginate(@press_releases) %>
+<br/>
+<% for p in @press_releases %>
+  <%= link_to(p.title, p) %><br/>
+<% end %>
+
+<br/>
+<%= will_paginate(@press_releases) %>

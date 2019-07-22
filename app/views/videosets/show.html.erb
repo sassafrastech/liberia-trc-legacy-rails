@@ -1,0 +1,47 @@
+<div id="videosets_show">
+  <!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. -->
+  <!-- The terms of service are available at http://www.google.com/cse/docs/tos.html -->
+  
+  <% if @set.title.match(/Hearing/) %>
+    <div id="filter_bar">
+      You can look for specific videos by choosing some filter criteria below. Or you can use the search box above.
+      <form id="filter_form">
+        <%= select_tag(:region, "<option value=\"any\">Any county</option>" +
+          options_from_collection_for_select(@regions, 'id', 'name_and_country', 
+          begin session[:filter][:region].to_i rescue nil end), :onchange => "this.form.submit()") %>
+        <%= select_tag(:month, "<option value=\"any\">Any month</option>" +
+          options_for_select(@months.collect{|m| ["#{Date::MONTHNAMES[m['month'].to_i]} #{m['year']}", "#{m['year']}/#{m['month']}"]}, 
+          begin session[:filter][:month] rescue nil end), :onchange => "this.form.submit()") %>
+        <%= select_tag(:linitial, "<option value=\"any\">Any last name</option>" +
+          options_for_select(@linitials.collect{|l| [l['linitial'], l['linitial']]}, 
+          begin session[:filter][:linitial] rescue nil end), :onchange => "this.form.submit()") %>
+        <%= select_tag(:htype, "<option value=\"any\">Any hearing type</option>" +
+          options_from_collection_for_select(@htypes, 'id', 'name', 
+          begin session[:filter][:htype].to_i rescue nil end), :onchange => "this.form.submit()") %>
+        <input type="hidden" name="clear" value="">
+      </form>  
+    </div>
+  <% end %>
+
+  <%= render(:partial => "small_nav")%>
+  
+  <div id="videos">
+    <% if @videos.empty? %>
+      <div id="not_found">No videos match your filter criteria! Click the link above to clear your criteria and see all the videos.</div>
+    <% else %>
+      <% count = 0 %>
+      <% @videos.each do |v| count += 1 %>
+        <div class="thumbnail">
+          <%= link_to(image_tag(v.path("thumbnail"), :alt => v.title), v) %>
+          <%= v.title %>
+        </div>
+        <% if count == 4; count = 0 %><br clear="all"/><% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <br clear="left">
+
+  <%= render(:partial => "small_nav")%>
+
+  <%= link_to("Back to Main Video Page", videosets_url) %>
+</div>

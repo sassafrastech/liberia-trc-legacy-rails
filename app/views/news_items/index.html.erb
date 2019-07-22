@@ -1,0 +1,9 @@
+<% @title = "TRC News" %>
+
+Information and news regarding internal activities of the Truth and Reconciliation Commission and its commissioners. 
+
+<br/><br/>
+
+<% for n in @news_items %>
+  <%= link_to(n.title, n) %><br/>
+<% end %>

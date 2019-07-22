@@ -1,0 +1,32 @@
+<% @title = @album ? @album.title : "TRC Photo Gallery" %></h2>
+<div class="album">
+  <% if @album %>
+    <div class="description">
+      <%= @album.description %>
+    </div>
+  <% end %>
+  <div id="albums">
+    <% @children.each do |c| %>
+      <div class="cover">
+        <%= link_to(image_tag(c.cover.path("thumbnail")), c) %>
+        <div class="title">
+          <%= link_to(c.title, c) %>
+        </div>
+        (<%= c.total_count %> photos)
+      </div>
+    <% end %>
+  </div>
+  <% if @photos %>
+    <div id="photos">
+      <% @photos.each do |p| %>
+        <div class="thumbnail">
+          <%= link_to(image_tag(p.path("thumbnail")), p) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <br clear="left">
+  <% if @album %>
+    <%= link_to("Back", @album.parent || albums_url) %>
+  <% end %>
+</div>

@@ -1,0 +1,36 @@
+<div id="videos_show">
+  <div id="player">
+    <% if @video.youtube_id %>
+      <object width="480" height="385">
+        <param name="movie" value="http://www.youtube.com/v/<%= @video.youtube_id %>?fs=1&amp;hl=en_US"></param>
+        <param name="allowFullScreen" value="true"></param>
+        <param name="allowscriptaccess" value="always"></param>
+        <embed src="http://www.youtube.com/v/<%= @video.youtube_id %>?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed>
+      </object>
+    <% elsif @video.library_stream_url %>
+      <div id="video-container" style="width:640px;margin:auto;"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this video.</div>
+      <script type="text/javascript" src="/resources/jwplayer/swfobject.js"></script>
+      <script type="text/javascript">
+      	var s1 = new SWFObject("/resources/jwplayer/player.swf","ply","480","385","9","#000000");
+      	s1.addParam("allowfullscreen","true");
+      	s1.addParam("allowscriptaccess","always");
+      	s1.addParam("flashvars","fullscreen=true&bufferlength=4&autostart=true&streamer=<%=@video.library_stream_url%>");
+      	s1.write("video-container");
+      </script>
+    <% else %>
+    Sorry, we don't know how to play this video.
+    <% end %>
+  </div>
+  <div id="metadata">
+    <dl>
+      <dt>Recorded At</dt><dd><%= begin @video.region.name_with_county rescue "Unknown" end %></dd>
+      <% if @video.recorded_on %><dt>Recorded On</dt><dd><%= @video.recorded_on.strftime("%B %e, %Y") %></dd><% end %>
+      <% if @video.speaker_fname || @video.speaker_lname %><dt>Speaker</dt><dd><%= "#{@video.speaker_fname} #{@video.speaker_lname}" %></dd><% end %>
+      <% if @video.hearing_type_id %><dt>Hearing Type</dt><dd><%= begin @video.hearing_type.name rescue "Unknown" end %></dd><% end %>
+      <dt>Run Time</dt><dd><%= @video.length.strftime("%T") %></dd>
+      <% if @video.library_dl_url %><dt>Download Link</dt><dd><%= link_to("Download full video", @video.library_dl_url) %></dd><% end %>
+    </dl>
+  </div>
+  <br clear="all"><br/>
+  <%= link_to("Back to Video Listing", @video.videoset) %>
+</div>  
