@@ -1,0 +1,141 @@
+BEFORE FIX
+
++-----------------------------+----------------+------+------+
+| title                       | library_alt_id | url  | id   |
++-----------------------------+----------------+------+------+
+| Unknown Witness #1          | 1853/38072     | 1133 | 1565 |
+| Unknown Witness #1          | 1853/38119     | 1301 | 1593 |
+| Unknown Witness #1          | 1853/37878     | 1536 | 1550 |
+| Unknown Witness #1          | 1853/37697     | 1550 | 1133 |
+| Unknown Witness #1          | 1853/37809     | 1565 | 1536 |
+| Unknown Witness #1          | 1853/37745     | 1593 | 1301 |
+| Unknown Witness #2          | 1853/38103     | 1144 | 1835 |
+| Unknown Witness #2          | 1853/37445     | 1594 | 1594 |
+| Unknown Witness #2          | 1853/37430     | 1835 | 1144 |
+| Unknown Witness #3          | 1853/37451     | 1548 | 1548 |
+| Unknown Witness #3          | 1853/37557     | 1582 | 1595 |
+| Unknown Witness #3          | 1853/37537     | 1595 | 1582 |
+| Unknown Witness #4          | 1853/37637     | 1549 | 1596 |
+| Unknown Witness #4          | 1853/37419     | 1596 | 1549 |
+| Unknown Witness #5          | 1853/37433     | 1597 | 1597 |
+
+
+
+| Unknown Witness #1, Part 1  | 1853/37862     | 1767 | 1847 |
+| Unknown Witness #1, Part 2  | 1853/37441     | 1768 | 1182 |
+| Unknown Witness #1, Part 3  | 1853/37508     | 1769 | 1769 |
+| Unknown Witness #1, Part 4  | 1853/37720     | 1770 | 1770 |
+| Unknown Witness #1, Part 5  | 1853/37545     | 1771 | 1771 |
+| Unknown Witness #1, Part 6  | 1853/37711     | 1772 | 1772 |
+| Unknown Witness #1, Part 7  | 1853/37828     | 1773 | 1773 |
+| Unknown Witness #1, Part 8  | 1853/37853     | 1774 | 1774 |
+| Unknown Witness #1, Part 9  | 1853/37742     | 1775 | 1775 |
+| Unknown Witness #1, Part 10 | 1853/37494     | 1776 | 1776 |
+
+| Unknown Witness #1, Part 1  | 1853/37815     | 1438 | 1767 |
+| Unknown Witness #1, Part 2  | 1853/37469     | 1439 | 1439 |
+
+| Unknown Witness #1, Part 1  | 1853/37657     | 1578 | 1671 |
+| Unknown Witness #1, Part 2  | 1853/37835     | 1579 | 1768 |
+
+| Unknown Witness #1, Part 1  | 1853/37548     | 1671 | 1639 |
+| Unknown Witness #1, Part 2  | 1853/37768     | 1672 | 1672 |
+
+| Unknown Witness #1, Part 1  | 1853/37468     | 1847 | 1578 |
+| Unknown Witness #1, Part 2  | 1853/37661     | 1848 | 1579 |
+
+| Unknown Witness #2, Part 1  | 1853/37476     | 1580 | 1580 |
+| Unknown Witness #2, Part 2  | 1853/37922     | 1581 | 1581 |
+
+| Unknown Witness #2, Part 1  | 1853/37566     | 1764 | 1640 |
+| Unknown Witness #2, Part 2  | 1853/37479     | 1765 | 1171 |
+| Unknown Witness #2, Part 3  | 1853/37477     | 1766 | 1197 |
+
+| Unknown Witness #3, Part 1  | 1853/37738     | 1642 | 1642 |
+| Unknown Witness #3, Part 2  | 1853/37463     | 1643 | 1643 |
+
+| Unknown Witness #4, Part 1  | 1853/37458     | 1583 | 1188 |
+| Unknown Witness #4, Part 2  | 1853/37770     | 1584 | 1202 |
+
+| Unknown Witness #2, Part 1  | 1853/37805     | 1640 | 1764 |
+| Unknown Witness #2, Part 2  | 1853/38126     | 1171 | 1765 |
+| Unknown Witness #2, Part 3  | 1853/38109     | 1197 | 1766 |
+
+| Unknown Witness #4, Part 1  | 1853/38010     | 1188 | 1583 |
+| Unknown Witness #4, Part 2  | 1853/38058     | 1202 | 1584 |
+| Unknown Witness #4, Part 3  | 1853/37586     | 1644 | 1644 |
+
+| Unknown Witness #1, Part 1  | 1853/37444     | 1639 | 1438 |
+| Unknown Witness #1, Part 2  | 1853/38173     | 1182 | 1848 |
+
+
+AFTER FIX
+
+
++-----------------------------+----------------+------+------+
+| title                       | library_alt_id | url  | id   |
++-----------------------------+----------------+------+------+
+| Unknown Witness #01         | 1853/38072     | 1133 | 1565 |
+| Unknown Witness #02         | 1853/38119     | 1301 | 1593 |
+| Unknown Witness #03         | 1853/37878     | 1536 | 1550 |
+| Unknown Witness #04         | 1853/37697     | 1550 | 1133 |
+| Unknown Witness #05         | 1853/37809     | 1565 | 1536 |
+| Unknown Witness #06         | 1853/37745     | 1593 | 1301 |
+| Unknown Witness #07         | 1853/38103     | 1144 | 1835 |
+| Unknown Witness #08         | 1853/37445     | 1594 | 1594 |
+| Unknown Witness #09         | 1853/37430     | 1835 | 1144 |
+| Unknown Witness #10         | 1853/37451     | 1548 | 1548 |
+| Unknown Witness #11         | 1853/37557     | 1582 | 1595 |
+| Unknown Witness #12         | 1853/37537     | 1595 | 1582 |
+| Unknown Witness #13         | 1853/37637     | 1549 | 1596 |
+| Unknown Witness #14         | 1853/37419     | 1596 | 1549 |
+| Unknown Witness #15         | 1853/37433     | 1597 | 1597 |
+
+
+
+| Unknown Witness #16, Part 1 | 1853/37862     | 1767 | 1847 |
+| Unknown Witness #16, Part 2 | 1853/37441     | 1768 | 1182 |
+| Unknown Witness #16, Part 3 | 1853/37508     | 1769 | 1769 |
+| Unknown Witness #16, Part 4 | 1853/37720     | 1770 | 1770 |
+| Unknown Witness #16, Part 5 | 1853/37545     | 1771 | 1771 |
+| Unknown Witness #16, Part 6 | 1853/37711     | 1772 | 1772 |
+| Unknown Witness #16, Part 7 | 1853/37828     | 1773 | 1773 |
+| Unknown Witness #16, Part 8 | 1853/37853     | 1774 | 1774 |
+| Unknown Witness #16, Part 9 | 1853/37742     | 1775 | 1775 |
+| Unknown Witness #16, Part 10| 1853/37494     | 1776 | 1776 |
+
+| Unknown Witness #17, Part 1 | 1853/37815     | 1438 | 1767 |
+| Unknown Witness #17, Part 2 | 1853/37469     | 1439 | 1439 |
+
+| Unknown Witness #18, Part 1 | 1853/37657     | 1578 | 1671 |
+| Unknown Witness #18, Part 2 | 1853/37835     | 1579 | 1768 |
+
+| Unknown Witness #19, Part 1 | 1853/37548     | 1671 | 1639 |
+| Unknown Witness #19, Part 2 | 1853/37768     | 1672 | 1672 |
+
+| Unknown Witness #20, Part 1 | 1853/37468     | 1847 | 1578 |
+| Unknown Witness #20, Part 2 | 1853/37661     | 1848 | 1579 |
+
+| Unknown Witness #21, Part 1 | 1853/37476     | 1580 | 1580 |
+| Unknown Witness #21, Part 2 | 1853/37922     | 1581 | 1581 |
+
+| Unknown Witness #22, Part 1 | 1853/37566     | 1764 | 1640 |
+| Unknown Witness #22, Part 2 | 1853/37479     | 1765 | 1171 |
+| Unknown Witness #22, Part 3 | 1853/37477     | 1766 | 1197 |
+
+| Unknown Witness #23, Part 1 | 1853/37738     | 1642 | 1642 |
+| Unknown Witness #23, Part 2 | 1853/37463     | 1643 | 1643 |
+
+| Unknown Witness #24, Part 1 | 1853/37458     | 1583 | 1188 |
+| Unknown Witness #24, Part 2 | 1853/37770     | 1584 | 1202 |
+
+| Unknown Witness #25, Part 1 | 1853/37805     | 1640 | 1764 |
+| Unknown Witness #25, Part 2 | 1853/38126     | 1171 | 1765 |
+| Unknown Witness #25, Part 3 | 1853/38109     | 1197 | 1766 |
+
+| Unknown Witness #26, Part 1 | 1853/38010     | 1188 | 1583 |
+| Unknown Witness #26, Part 2 | 1853/38058     | 1202 | 1584 |
+| Unknown Witness #26, Part 3 | 1853/37586     | 1644 | 1644 |
+
+| Unknown Witness #27, Part 1 | 1853/37444     | 1639 | 1438 |
+| Unknown Witness #27, Part 2 | 1853/38173     | 1182 | 1848 |
