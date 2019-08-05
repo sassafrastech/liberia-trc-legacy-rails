@@ -1,8 +1,8 @@
-class VideosetsController < ApplicationController 
-  
+class VideosetsController < ApplicationController
+
   def index
     @title = "TRC Videos"
-    set_crumb([["Multimedia", "/multimedia"], ["Videos", videosets_path]])
+    set_crumb([["Videos", videosets_path]])
     @sets = Videoset.all
   end
   
@@ -10,8 +10,8 @@ class VideosetsController < ApplicationController
     # get videoset
     @set = Videoset.find(params[:id])
     @title = @set.title
-    set_crumb([["Multimedia", "/multimedia"], ["Videos", videosets_path], @set.title])
-    
+    set_crumb([["Videos", videosets_path], @set.title])
+
     if @set.title.match(/Hearing/)
       # process filter params
       if params[:clear] == "1"
@@ -21,26 +21,26 @@ class VideosetsController < ApplicationController
       else
         session[:filter] ||= {:region => "any", :month => "any", :linitial => "any", :htype => "any"}
         session[:page] = params[:page] || session[:page]
-        
+
         # read new filter criteria from params (if any)
         new_filter = {}
         session[:filter].each_key{|k| new_filter[k] = params[k] || session[:filter][k]}
-        
+
         # if any changes, do stuff
         if new_filter != session[:filter]
           session[:page] = nil
           session[:filter] = new_filter
         end
       end
-      
+
       # always set the videoset id
       session[:filter] ||= {}
       session[:filter][:set_id] = @set.id
-      
+
       # get videos
       filter_clause = Video.filter_clause(session[:filter])
       @videos = Video.paginate_and_filter(session[:page], filter_clause)
-      
+
       # check if there are filter criteria set
       @can_clear = !session[:filter].reject{|k,v| ![:region, :month, :linitial, :htype].include?(k)}.values.compact.empty?
 
