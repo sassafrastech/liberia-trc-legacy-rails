@@ -27,7 +27,8 @@ h1 {	margin: 5px 0 10px 0;}
 #videosets_show #filter_form select { font-size: 90%; }
 #videos .thumbnail img { border: 1px solid DarkGray; padding: 3px; width: 160px; height: 120px; display: block; margin-bottom: 5px; }
 #videos .thumbnail { float: left; margin: 0 15px 10px 0; width: 170px; min-height: 160px; line-height: 13pt; }
-#videos_show #player { float: left; width: 490px; }
+#videos_show #player { float: left; width: 470px; padding-right: 20px; }
+#videos_show #player video { width: 100%; }
 #videos_show #metadata { float: left; width: 250px; }
 #videos_show #metadata dl { margin: 0; }
 #videos_show #metadata dt { font-size: 90%; font-weight: bold; border-top: 1px solid #ddd; }
@@ -68,7 +69,7 @@ ul#scholarly li { margin-bottom: 10px; }
 	text-align: left;
 }
 #categoryList .articleTitle {
-	
+
 }
 /* photo gallery thing */
 .jg_toplist {
@@ -509,7 +510,7 @@ height: 31px;
 #creative-commons table {
 	margin-right: auto;
 	margin-left: auto;
-} 
+}
 #creative-commons img {
 	align: left;
 	margin-right: 10px;
@@ -581,5 +582,3 @@ z-index: 1000;
 color: white;
 border: 5px solid RGB(255, 241, 0);
 }
-
-
