@@ -16,6 +16,5 @@ Rough steps to run in development mode.
   gem install will_paginate -v 2.3.15 --no-ri --no-rdoc
   gem install mini_magick -v 3.2 --no-ri --no-rdoc
   ```
-1. Update `config/environment.rb` to use correct path in load_paths
 1. To run console: `./script/console`
 1. To run dev server: `./script/server`
