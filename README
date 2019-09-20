@@ -18,3 +18,4 @@ Rough steps to run in development mode.
   ```
 1. To run console: `./script/console`
 1. To run dev server: `./script/server`
+1. Visit the site at http://localhost
