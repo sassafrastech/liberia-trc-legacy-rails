@@ -5,6 +5,34 @@
   <% if @set.title.match(/Hearing/) %>
     <div id="filter_bar">
       You can look for specific videos by choosing some filter criteria below. Or you can use the search box above.
+      <ul id= "region" style="list-style-type:none;"> Select Region:
+        <li style="display:inline;"><a value ="any" href="#">Any county</a></li>
+        <% @regions.each do |r| %>
+        <li style="display:inline; padding:4px;"><a href="#"  value = "<%= r.id %>" > <%= r.name_and_country -%></a></li>
+        <%end%>
+      </ul>
+    
+      <ul id= "month" style="list-style-type:none;"> Select Month:
+        <li style="display:inline;"><a href="#" value ="any" >Any month</a></li>
+        <% @months.each do |m| %>
+        <li style="display:inline; padding:4px;"><a href="#" value = "<%= m['year'] + "/" + m['month'] %>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
+        <%end%>
+      </ul>
+
+      <ul id= "linitial" style="list-style-type:none;"> Select Last Name:
+        <li style="display:inline;"><a href="#" value ="any">Any last name</a></li>
+        <% @linitials.each do |l| %>
+        <li style="display:inline; padding:4px;"><a href="#" value = "<%= l['linitial'] %>" > <%= l['linitial'] -%></a></li>
+        <%end%>
+      </ul>
+
+      <ul id= "htype" style="list-style-type:none;"> Select Hearing Type:
+        <li style="display:inline;"><a href="#" value ="any">Any hearing type</a></li>
+        <% @htypes.each do |h| %>
+        <li style="display:inline; padding:4px;"><a href="#" value = "<%= h.id %>" > <%= h.name -%></a></li>
+        <%end%>
+      </ul>
+
       <form id="filter_form">
         <%= select_tag(:region, "<option value=\"any\">Any county</option>" +
           options_from_collection_for_select(@regions, 'id', 'name_and_country', 

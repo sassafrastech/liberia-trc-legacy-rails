@@ -19,7 +19,7 @@ class CreateVideos < ActiveRecord::Migration
       t.integer :hearing_type_id
       t.string :speaker_fname
       t.string :speaker_lname
-
+      t.string :library_file_url
       t.timestamps
     end
   end
