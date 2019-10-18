@@ -4,50 +4,41 @@
   
   <% if @set.title.match(/Hearing/) %>
     <div id="filter_bar">
-      You can look for specific videos by choosing some filter criteria below. Or you can use the search box above.
-      <ul id= "region" style="list-style-type:none;"> Select Region:
-        <li style="display:inline;"><a value ="any" href="#">Any county</a></li>
-        <% @regions.each do |r| %>
-        <li style="display:inline; padding:4px;"><a href="#"  value = "<%= r.id %>" > <%= r.name_and_country -%></a></li>
-        <%end%>
+      You can look for specific videos by choosing a filter criteria below.
+      <ul class="filter-types">
+        <li class="filter-item filter-dropdown" id= "region"><a class="dropdown-trigger" href="#">County</a>
+          <ul class = "dropdown-menu">
+            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any county</a></li>
+            <% @regions.each do |r| %>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=" + r.id.to_s + "&month=any&linitial=any&htype=any&clear=" %>"> <%= r.name_and_country -%></a></li>
+            <%end%>
+          </ul>
+        </li>
+        <li class="filter-item filter-dropdown" id= "month"><a class="dropdown-trigger" href="#">Month</a>
+          <ul class = "dropdown-menu" >
+            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any month</a></li>
+            <% @months.each do |m| %>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=any&month=" + m['year'].to_s + "%2F" + m['month'].to_s + "&linitial=any&htype=any&clear="%>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
+            <%end%>
+          </ul>
+        </li>
+        <li class="filter-item filter-dropdown" id= "linitial"><a  class="dropdown-trigger" href="#">Last Name</a>
+          <ul class = "dropdown-menu" > 
+            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any last name</a></li>
+            <% @linitials.each do |l| %>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=any&month=any&linitial=" + l['linitial'].to_s + "&htype=any&clear=" %>" > <%= l['linitial'] -%></a></li>
+            <%end%>
+          </ul>
+        </li>
+        <li class="filter-item filter-dropdown" id= "htype"><a  class="dropdown-trigger" href="#">Hearing Type</a>
+          <ul class = "dropdown-menu" >
+            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any hearing type</a></li>
+            <% @htypes.each do |h| %>
+            <li class = "dropdown-menu-item"><a href= "<%= "/videosets/1?region=any&month=any&linitial=any&htype=" +  h.id.to_s + "&clear="%>" > <%= h.name -%></a></li>
+            <%end%>
+          </ul>
+        </li>
       </ul>
-    
-      <ul id= "month" style="list-style-type:none;"> Select Month:
-        <li style="display:inline;"><a href="#" value ="any" >Any month</a></li>
-        <% @months.each do |m| %>
-        <li style="display:inline; padding:4px;"><a href="#" value = "<%= m['year'] + "/" + m['month'] %>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
-        <%end%>
-      </ul>
-
-      <ul id= "linitial" style="list-style-type:none;"> Select Last Name:
-        <li style="display:inline;"><a href="#" value ="any">Any last name</a></li>
-        <% @linitials.each do |l| %>
-        <li style="display:inline; padding:4px;"><a href="#" value = "<%= l['linitial'] %>" > <%= l['linitial'] -%></a></li>
-        <%end%>
-      </ul>
-
-      <ul id= "htype" style="list-style-type:none;"> Select Hearing Type:
-        <li style="display:inline;"><a href="#" value ="any">Any hearing type</a></li>
-        <% @htypes.each do |h| %>
-        <li style="display:inline; padding:4px;"><a href="#" value = "<%= h.id %>" > <%= h.name -%></a></li>
-        <%end%>
-      </ul>
-
-      <form id="filter_form">
-        <%= select_tag(:region, "<option value=\"any\">Any county</option>" +
-          options_from_collection_for_select(@regions, 'id', 'name_and_country', 
-          begin session[:filter][:region].to_i rescue nil end), :onchange => "this.form.submit()") %>
-        <%= select_tag(:month, "<option value=\"any\">Any month</option>" +
-          options_for_select(@months.collect{|m| ["#{Date::MONTHNAMES[m['month'].to_i]} #{m['year']}", "#{m['year']}/#{m['month']}"]}, 
-          begin session[:filter][:month] rescue nil end), :onchange => "this.form.submit()") %>
-        <%= select_tag(:linitial, "<option value=\"any\">Any last name</option>" +
-          options_for_select(@linitials.collect{|l| [l['linitial'], l['linitial']]}, 
-          begin session[:filter][:linitial] rescue nil end), :onchange => "this.form.submit()") %>
-        <%= select_tag(:htype, "<option value=\"any\">Any hearing type</option>" +
-          options_from_collection_for_select(@htypes, 'id', 'name', 
-          begin session[:filter][:htype].to_i rescue nil end), :onchange => "this.form.submit()") %>
-        <input type="hidden" name="clear" value="">
-      </form>  
     </div>
   <% end %>
 
