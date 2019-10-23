@@ -4,6 +4,6 @@
 
   <% if @set.title.match(/Hearing/) && @can_clear %>
     <% unless pagination.nil? %>&nbsp;|&nbsp;<% end %>
-    <a href="#" onclick="var d = document.getElementById('filter_form'); d.clear.value = '1', d.submit();">Clear Filter Criteria</a>
+    <a href="/videosets/1" onclick="var d = document.getElementById('filter_form'); d.clear.value = '1', d.submit();">Clear Filter Criteria</a>
   <% end %>
 </div>

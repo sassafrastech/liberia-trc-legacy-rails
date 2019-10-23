@@ -14,11 +14,11 @@ class VideosetsController < ApplicationController
 
     if @set.title.match(/Hearing/)
       # process filter params
-      #if params[:clear] == "1"
-        #session[:filter] = {:region => "any", :month => "any", :linitial => "any", :htype => "any"}
-        #session[:page] = nil
-        #redirect_to(@set)
-      #else
+      if params[:clear] == "1"
+        session[:filter] = {:region => "any", :month => "any", :linitial => "any", :htype => "any"}
+        session[:page] = nil
+        redirect_to(@set)
+      else
         session[:filter] ||= {:region => "any", :month => "any", :linitial => "any", :htype => "any"}
         session[:page] = params[:page] || session[:page]
 
@@ -31,7 +31,7 @@ class VideosetsController < ApplicationController
           session[:page] = nil
           session[:filter] = new_filter
         end
-      #end
+      end
 
       # always set the videoset id
       session[:filter] ||= {}
