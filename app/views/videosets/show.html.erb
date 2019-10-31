@@ -1,52 +1,48 @@
 <div id="videosets_show">
   <!-- Use of this code assumes agreement with the Google Custom Search Terms of Service. -->
   <!-- The terms of service are available at http://www.google.com/cse/docs/tos.html -->
-  
+
   <% if @set.title.match(/Hearing/) %>
     <div id="filter_bar">
       You can look for specific videos by choosing a filter criteria below.
       <ul class="filter-types">
         <li class="filter-item filter-dropdown" id= "region"><a class="dropdown-trigger" href="#">County</a>
           <ul class = "dropdown-menu">
-            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any county</a></li>
             <% @regions.each do |r| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=" + r.id.to_s + "&month=any&linitial=any&htype=any&clear=" %>"> <%= r.name_and_country -%></a></li>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=" + r.id.to_s %>"> <%= r.name_and_country -%></a></li>
             <%end%>
           </ul>
         </li>
         <li class="filter-item filter-dropdown" id= "month"><a class="dropdown-trigger" href="#">Month</a>
           <ul class = "dropdown-menu" >
-            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any month</a></li>
             <% @months.each do |m| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=any&month=" + m['year'].to_s + "%2F" + m['month'].to_s + "&linitial=any&htype=any&clear="%>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?month=" + m['year'].to_s + "%2F" + m['month'].to_s%>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
             <%end%>
           </ul>
         </li>
         <li class="filter-item filter-dropdown" id= "linitial"><a  class="dropdown-trigger" href="#">Last Name</a>
-          <ul class = "dropdown-menu" > 
-            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any last name</a></li>
+          <ul class = "dropdown-menu" >
             <% @linitials.each do |l| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=any&month=any&linitial=" + l['linitial'].to_s + "&htype=any&clear=" %>" > <%= l['linitial'] -%></a></li>
+            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?linitial=" + l['linitial'].to_s %>" > <%= l['linitial'] -%></a></li>
             <%end%>
           </ul>
         </li>
         <li class="filter-item filter-dropdown" id= "htype"><a  class="dropdown-trigger" href="#">Hearing Type</a>
           <ul class = "dropdown-menu" >
-            <li class = "dropdown-menu-item"><a href="/videosets/1?region=any&month=any&linitial=any&htype=any&clear=">Any hearing type</a></li>
             <% @htypes.each do |h| %>
-            <li class = "dropdown-menu-item"><a href= "<%= "/videosets/1?region=any&month=any&linitial=any&htype=" +  h.id.to_s + "&clear="%>" > <%= h.name -%></a></li>
+            <li class = "dropdown-menu-item"><a href= "<%= "/videosets/1?htype=" +  h.id.to_s%>" > <%= h.name -%></a></li>
             <%end%>
           </ul>
         </li>
       </ul>
       <form id="filter_form">
         <input type="hidden" name="clear" value="1">
-      </form>  
+      </form>
     </div>
   <% end %>
 
   <%= render(:partial => "small_nav")%>
-  
+
   <div id="videos">
     <% if @videos.empty? %>
       <div id="not_found">No videos found.</div>
