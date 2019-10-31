@@ -15,6 +15,8 @@ class VideosetsController < ApplicationController
     if @set.title.match(/Hearing/)
       filter = {}
       [:region, :month, :linitial, :htype].each { |k| filter[k] = params[k] || "any" }
+      @any_filters = filter.values.uniq != ["any"]
+
       filter[:set_id] = @set.id
 
       filter_clause = Video.filter_clause(filter)

@@ -5,6 +5,9 @@
   <% if @set.title.match(/Hearing/) %>
     <div id="filter_bar">
       You can look for specific videos by choosing a filter criteria below.
+      <% if @any_filters %>
+        Or you can <%= link_to("view all videos", "/videosets/1") %>.
+      <% end %>
       <ul class="filter-types">
         <li class="filter-item filter-dropdown" id= "region"><a class="dropdown-trigger" href="#">County</a>
           <ul class = "dropdown-menu">
