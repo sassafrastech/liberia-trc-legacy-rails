@@ -9,7 +9,7 @@ class VideosetsController < ApplicationController
   def show
     # get videoset
     @set = Videoset.find(params[:id])
-    @title = @set.title
+    @title = @set.title + filter_description
     set_crumb([["Videos", videosets_path], @set.title])
 
     if @set.title.match(/Hearing/)
@@ -27,6 +27,26 @@ class VideosetsController < ApplicationController
       @htypes = HearingType.all_by_name
     else
       @videos = @set.videos.paginate(:page => 1, :order => "recorded_on, title")
+    end
+  end
+
+  private
+
+  def filter_description
+    if params[:region]
+      region = Region.find(params[:region])
+      " - #{region.name_and_country}"
+    elsif params[:month]
+      year, month = params[:month].split("/")
+      month = Date::MONTHNAMES[month.to_i]
+      " - #{month} #{year}"
+    elsif params[:linitial]
+      " - Last Name '#{params[:linitial].upcase}'"
+    elsif params[:htype]
+      htype = HearingType.find(params[:htype])
+      " - #{htype.name}"
+    else
+      ""
     end
   end
 end
