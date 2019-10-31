@@ -49,7 +49,7 @@
   
   <div id="videos">
     <% if @videos.empty? %>
-      <div id="not_found">No videos match your filter criteria! Click the link above to clear your criteria and see all the videos.</div>
+      <div id="not_found">No videos found.</div>
     <% else %>
       <% count = 0 %>
       <% @videos.each do |v| count += 1 %>
