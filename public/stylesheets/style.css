@@ -102,7 +102,7 @@ h1 {	margin: 5px 0 10px 0;}
 	opacity: 0;
 	transition: opacity 0.5s ease;
 	top: 1.2rem;
-	right: 15px;
+	/*right: 15px;*/
 	background-color: #fff;
 	/*width: 160px;*/
 	border-style: outset;
@@ -110,7 +110,24 @@ h1 {	margin: 5px 0 10px 0;}
 	border-width: 0.75px;
 	border-radius: 5px;
 	padding-left: 0px;
-} 
+}
+
+#region .dropdown-menu{
+	right:5px;
+	min-width: 120px;
+}
+#month .dropdown-menu{
+	right:15px;
+}
+#linitial .dropdown-menu{
+	right:1px;
+	min-width: 100px;
+}
+
+#htype .dropdown-menu{
+	right:-40px;
+	min-width: 320px;
+}
 .dropdown-menu a, a:visited{
 	color: #333333;
 }
@@ -129,6 +146,7 @@ h1 {	margin: 5px 0 10px 0;}
 	text-decoration: none;
 	color: #333333 !important ; 
 	cursor: pointer;
+	display: block;
 }
 .dropdown-menu-item:hover {
 	background-color: #8BC53F;
