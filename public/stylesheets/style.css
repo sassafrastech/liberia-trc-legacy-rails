@@ -38,6 +38,7 @@ h1 {	margin: 5px 0 10px 0;}
 .dropdown-menu-item {
   list-style: none;
   -webkit-padding-start: 0;
+  padding-left: 0;
 }
 .filter-item {
 	padding: 4px;
@@ -621,13 +622,16 @@ width: 275px;
 #info-bottom {
 border-top: 5px solid RGB(0, 110, 58);
 padding: 1em 0;
-height: 31px;
+height: 75px;
 }
-#creative-commons {
+
+#creative-commons tr {
+	padding: 8px;
 }
 #creative-commons table {
 	margin-right: auto;
 	margin-left: auto;
+	border-spacing: 8px;
 }
 #creative-commons img {
 	align: left;
