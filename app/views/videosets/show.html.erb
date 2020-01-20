@@ -8,38 +8,20 @@
       <% if @any_filters %>
         Or you can <%= link_to("view all videos", "/videosets/1") %>.
       <% end %>
-      <ul class="filter-types">
-        <li class="filter-item filter-dropdown" id= "region"><a class="dropdown-trigger" href="#">County</a>
-          <ul class = "dropdown-menu">
-            <% @regions.each do |r| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?region=" + r.id.to_s %>"> <%= r.name_and_country -%></a></li>
-            <%end%>
-          </ul>
-        </li>
-        <li class="filter-item filter-dropdown" id= "month"><a class="dropdown-trigger" href="#">Month</a>
-          <ul class = "dropdown-menu" >
-            <% @months.each do |m| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?month=" + m['year'].to_s + "%2F" + m['month'].to_s%>"> <%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a></li>
-            <%end%>
-          </ul>
-        </li>
-        <li class="filter-item filter-dropdown" id= "linitial"><a  class="dropdown-trigger" href="#">Last Name</a>
-          <ul class = "dropdown-menu" >
-            <% @linitials.each do |l| %>
-            <li class = "dropdown-menu-item"><a href="<%= "/videosets/1?linitial=" + l['linitial'].to_s %>" > <%= l['linitial'] -%></a></li>
-            <%end%>
-          </ul>
-        </li>
-        <li class="filter-item filter-dropdown" id= "htype"><a  class="dropdown-trigger" href="#">Hearing Type</a>
-          <ul class = "dropdown-menu" >
-            <% @htypes.each do |h| %>
-            <li class = "dropdown-menu-item"><a href= "<%= "/videosets/1?htype=" +  h.id.to_s%>" > <%= h.name -%></a></li>
-            <%end%>
-          </ul>
-        </li>
-      </ul>
+
       <form id="filter_form">
-        <input type="hidden" name="clear" value="1">
+        <%= select_tag(:region, "<option value=\"any\">Any county</option>" +
+          options_from_collection_for_select(@regions, 'id', 'name_and_country',
+          params[:region] ? params[:region].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1?region=' + this.value") %>
+        <%= select_tag(:month, "<option value=\"any\">Any month</option>" +
+          options_for_select(@months.collect{|m| ["#{Date::MONTHNAMES[m['month'].to_i]} #{m['year']}", "#{m['year']}/#{m['month']}"]},
+          params[:month]), :onchange => "console.log(this); window.location.href = '/videosets/1?month=' + this.value") %>
+        <%= select_tag(:linitial, "<option value=\"any\">Any last name</option>" +
+          options_for_select(@linitials.collect{|l| [l['linitial'], l['linitial']]},
+          params[:linitial]), :onchange => "console.log(this); window.location.href = '/videosets/1?linitial=' + this.value") %>
+        <%= select_tag(:htype, "<option value=\"any\">Any hearing type</option>" +
+          options_from_collection_for_select(@htypes, 'id', 'name',
+          params[:htype] ? params[:htype].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1?htype=' + this.value") %>
       </form>
     </div>
   <% end %>
@@ -65,4 +47,22 @@
   <%= render(:partial => "small_nav")%>
 
   <%= link_to("Back to Main Video Page", videosets_url) %>
+
+  <% if @set.title.match(/Hearing/) %>
+    <!-- INCLUDE THESE HIDDEN LINKS SO THAT ALL PAGES WILL GET INDEXED EVEN THOUGH WE ARE USING JS AND SELECTS FOR FILTERS -->
+    <div id="hidden_links">
+      <% @regions.each do |r| %>
+        <a href="<%= "/videosets/1?region=" + r.id.to_s %>"><%= r.name_and_country -%></a>
+      <%end%>
+      <% @months.each do |m| %>
+        <a href="<%= "/videosets/1?month=" + m['year'].to_s + "%2F" + m['month'].to_s%>"><%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a>
+      <%end%>
+      <% @linitials.each do |l| %>
+        <a href="<%= "/videosets/1?linitial=" + l['linitial'].to_s %>" ><%= l['linitial'] -%></a>
+      <%end%>
+      <% @htypes.each do |h| %>
+        <a href= "<%= "/videosets/1?htype=" +  h.id.to_s%>" ><%= h.name -%></a>
+      <%end%>
+    </div>
+  <% end %>
 </div>

@@ -9,7 +9,8 @@ class VideosetsController < ApplicationController
   def show
     # get videoset
     @set = Videoset.find(params[:id])
-    @title = @set.title + filter_description
+    build_filter_description
+    @title = [@set.title, @filter_description].compact.join(" - ")
     set_crumb([["Videos", videosets_path], @set.title])
 
     if @set.title.match(/Hearing/)
@@ -34,19 +35,24 @@ class VideosetsController < ApplicationController
 
   private
 
-  def filter_description
-    if params[:region]
+  def build_filter_description
+    @region_prompt = "County"
+    @month_prompt = "Month"
+    @linitial_prompt = "Last Name"
+    @htype_prompt = "Hearing Type"
+
+    if params[:region] && params[:region] != "any"
       region = Region.find(params[:region])
-      " - #{region.name_and_country}"
+      @filter_description = @region_prompt = region.name_and_country
     elsif params[:month]
       year, month = params[:month].split("/")
       month = Date::MONTHNAMES[month.to_i]
-      " - #{month} #{year}"
+      @filter_description = @month_prompt = "#{month} #{year}"
     elsif params[:linitial]
-      " - Last Name '#{params[:linitial].upcase}'"
+      @filter_description = @linitial_prompt = "Last Name '#{params[:linitial].upcase}'"
     elsif params[:htype]
       htype = HearingType.find(params[:htype])
-      " - #{htype.name}"
+      @filter_description = @htype_prompt = htype.name
     else
       ""
     end
