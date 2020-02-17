@@ -1,6 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :press_releases, :news_items, :albums, :photos, :transcripts, :videos, :videosets
-  
+  map.connect "videosets/:id/region/:region", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/month/:month", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/linitial/:linitial", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/htype/:htype", :controller => "videosets", :action => "show"
 
   # The priority is based upon order of creation: first created -> highest priority.
 

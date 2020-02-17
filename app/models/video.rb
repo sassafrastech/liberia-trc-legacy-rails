@@ -19,8 +19,8 @@ class Video < ActiveRecord::Base
     end
     
     if params[:month] != "any"
-      conds << "year(videos.recorded_on) = ? and month(videos.recorded_on) = ?" 
-      args += params[:month].split("/")
+      conds << "year(videos.recorded_on) = ? and month(videos.recorded_on) = ?"
+      args += params[:month].split("-")
     end
     
     if params[:linitial] != "any"

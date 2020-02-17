@@ -45,7 +45,7 @@ class VideosetsController < ApplicationController
       region = Region.find(params[:region])
       @filter_description = @region_prompt = region.name_and_country
     elsif params[:month]
-      year, month = params[:month].split("/")
+      year, month = params[:month].split("-")
       month = Date::MONTHNAMES[month.to_i]
       @filter_description = @month_prompt = "#{month} #{year}"
     elsif params[:linitial]
