@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :press_releases, :news_items, :albums, :photos, :transcripts, :videos, :videosets
-  map.connect "videosets/:id/region/:region", :controller => "videosets", :action => "show"
-  map.connect "videosets/:id/month/:month", :controller => "videosets", :action => "show"
-  map.connect "videosets/:id/linitial/:linitial", :controller => "videosets", :action => "show"
-  map.connect "videosets/:id/htype/:htype", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/:page.html", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/region/:region/:page.html", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/month/:month/:page.html", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/linitial/:linitial/:page.html", :controller => "videosets", :action => "show"
+  map.connect "videosets/:id/htype/:htype/:page.html", :controller => "videosets", :action => "show"
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -23,7 +24,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments
