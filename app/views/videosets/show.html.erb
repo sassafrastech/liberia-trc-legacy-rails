@@ -12,16 +12,16 @@
       <form id="filter_form">
         <%= select_tag(:region, "<option value=\"any\">Any county</option>" +
           options_from_collection_for_select(@regions, 'id', 'name_and_country',
-          params[:region] ? params[:region].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1/region/' + this.value") %>
+          params[:region] ? params[:region].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1/region/' + this.value + '/1.html'") %>
         <%= select_tag(:month, "<option value=\"any\">Any month</option>" +
           options_for_select(@months.collect{|m| ["#{Date::MONTHNAMES[m['month'].to_i]} #{m['year']}", "#{m['year']}-#{m['month']}"]},
-          params[:month]), :onchange => "console.log(this); window.location.href = '/videosets/1/month/' + this.value") %>
+          params[:month]), :onchange => "console.log(this); window.location.href = '/videosets/1/month/' + this.value + '/1.html'") %>
         <%= select_tag(:linitial, "<option value=\"any\">Any last name</option>" +
           options_for_select(@linitials.collect{|l| [l['linitial'], l['linitial']]},
-          params[:linitial]), :onchange => "console.log(this); window.location.href = '/videosets/1/linitial/' + this.value") %>
+          params[:linitial]), :onchange => "console.log(this); window.location.href = '/videosets/1/linitial/' + this.value + '/1.html'") %>
         <%= select_tag(:htype, "<option value=\"any\">Any hearing type</option>" +
           options_from_collection_for_select(@htypes, 'id', 'name',
-          params[:htype] ? params[:htype].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1/htype/' + this.value") %>
+          params[:htype] ? params[:htype].to_i : nil), :onchange => "console.log(this); window.location.href = '/videosets/1/htype/' + this.value + '/1.html'") %>
       </form>
     </div>
   <% end %>
@@ -52,16 +52,16 @@
     <!-- INCLUDE THESE HIDDEN LINKS SO THAT ALL PAGES WILL GET INDEXED EVEN THOUGH WE ARE USING JS AND SELECTS FOR FILTERS -->
     <div id="hidden_links">
       <% @regions.each do |r| %>
-        <a href="<%= "/videosets/1/region/" + r.id.to_s %>"><%= r.name_and_country -%></a>
+        <a href="<%= "/videosets/1/region/" + r.id.to_s + "/1.html" %>"><%= r.name_and_country -%></a>
       <%end%>
       <% @months.each do |m| %>
-        <a href="<%= "/videosets/1/month/" + m['year'].to_s + "-" + m['month'].to_s%>"><%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a>
+        <a href="<%= "/videosets/1/month/" + m['year'].to_s + "-" + m['month'].to_s%>"><%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] + "/1.html" -%></a>
       <%end%>
       <% @linitials.each do |l| %>
-        <a href="<%= "/videosets/1/linitial/" + l['linitial'].to_s %>" ><%= l['linitial'] -%></a>
+        <a href="<%= "/videosets/1/linitial/" + l['linitial'].to_s + "/1.html" %>" ><%= l['linitial'] -%></a>
       <%end%>
       <% @htypes.each do |h| %>
-        <a href= "<%= "/videosets/1/htype/" +  h.id.to_s%>" ><%= h.name -%></a>
+        <a href= "<%= "/videosets/1/htype/" +  h.id.to_s + "/1.html" %>" ><%= h.name -%></a>
       <%end%>
     </div>
   <% end %>
