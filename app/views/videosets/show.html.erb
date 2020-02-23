@@ -55,7 +55,7 @@
         <a href="<%= "/videosets/1/region/" + r.id.to_s + "/1.html" %>"><%= r.name_and_country -%></a>
       <%end%>
       <% @months.each do |m| %>
-        <a href="<%= "/videosets/1/month/" + m['year'].to_s + "-" + m['month'].to_s%>"><%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] + "/1.html" -%></a>
+        <a href="<%= "/videosets/1/month/" + m['year'].to_s + "-" + m['month'].to_s + "/1.html" %>"><%= Date::MONTHNAMES[m['month'].to_i] + " " + m['year'] -%></a>
       <%end%>
       <% @linitials.each do |l| %>
         <a href="<%= "/videosets/1/linitial/" + l['linitial'].to_s + "/1.html" %>" ><%= l['linitial'] -%></a>
